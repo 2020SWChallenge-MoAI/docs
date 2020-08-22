@@ -4,7 +4,7 @@
 
 ## auth
 
-* [sign in](auth/sign-in.md)
+* [sign in / sign up](auth/sign-in.md)
 
 ## user
 

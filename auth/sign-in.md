@@ -2,7 +2,7 @@
 
 {% api-method method="post" host="https://ttokdok.moai" path="/auth/sign-in" %}
 {% api-method-summary %}
-sign\_in
+sign in
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -58,7 +58,7 @@ Server down
 
 {% api-method method="post" host="https://ttokdok.moai" path="/auth/sign-up" %}
 {% api-method-summary %}
-sign\_up
+sign up
 {% endapi-method-summary %}
 
 {% api-method-description %}

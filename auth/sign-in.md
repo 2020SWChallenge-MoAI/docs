@@ -23,28 +23,45 @@ User password\(plain text\)
 {% endapi-method-request %}
 
 {% api-method-response %}
-
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 Sign-in success
 {% endapi-method-response-example-description %}
+
+```javascript
+{
+   code: 200,
+   message: "sign in success",
+}
+```
 {% endapi-method-response-example %}
 
 {% api-method-response-example httpCode=401 %}
 {% api-method-response-example-description %}
 Sign-in failed
 {% endapi-method-response-example-description %}
+
+```javascript
+{
+   code: 401,
+   message: "sign-in failed",
+}
+```
 {% endapi-method-response-example %}
 
 {% api-method-response-example httpCode=500 %}
 {% api-method-response-example-description %}
 Server down
 {% endapi-method-response-example-description %}
-{% endapi-method-response-example %}
 
+```javascript
+{
+   code: 500,
+   message: "server down",
+}
+```
+{% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
-
-
 

@@ -28,11 +28,8 @@ User password\(plain text\)
 Sign-in success
 {% endapi-method-response-example-description %}
 
-```javascript
-{
-   code: 200,
-   message: "sign in success",
-}
+```
+
 ```
 {% endapi-method-response-example %}
 
@@ -42,10 +39,7 @@ Sign-in failed
 {% endapi-method-response-example-description %}
 
 ```javascript
-{
-   code: 401,
-   message: "sign in failed",
-}
+
 ```
 {% endapi-method-response-example %}
 
@@ -54,11 +48,8 @@ Sign-in failed
 Server down
 {% endapi-method-response-example-description %}
 
-```javascript
-{
-   code: 500,
-   message: "server down",
-}
+```
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -106,10 +97,7 @@ Sign-in success
 {% endapi-method-response-example-description %}
 
 ```javascript
-{
-   code: 200,
-   message: "sign up success",
-}
+
 ```
 {% endapi-method-response-example %}
 
@@ -119,10 +107,7 @@ Sign-in failed
 {% endapi-method-response-example-description %}
 
 ```javascript
-{
-   code: 401,
-   message: "sign up failed",
-}
+
 ```
 {% endapi-method-response-example %}
 
@@ -131,11 +116,8 @@ Sign-in failed
 Server down
 {% endapi-method-response-example-description %}
 
-```javascript
-{
-   code: 500,
-   message: "server down",
-}
+```
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}

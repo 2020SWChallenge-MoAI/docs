@@ -25,7 +25,7 @@ User password\(plain text\)
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-Sign-in success
+Sign-in success..........^^!^!^!^!
 {% endapi-method-response-example-description %}
 {% endapi-method-response-example %}
 

@@ -6,7 +6,7 @@ description: Get informations about users
 
 {% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/profile" %}
 {% api-method-summary %}
-Get user profile
+User profile
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -16,7 +16,7 @@ Get user's profile
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="uid" type="string" required=true %}
+{% api-method-parameter name="uid" type="integer" required=true %}
 User uid
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
@@ -69,7 +69,70 @@ Server down
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://ttokdok.moai" path="" %}
+{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/stats" %}
+{% api-method-summary %}
+User statistics
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="uid" type="integer" required=true %}
+User uid
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="x-access-token" type="string" required=true %}
+Access token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    win_rate: , // float
+    n_books: , // integer
+    n_activities: // integer
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid  
+`uid` is not valid
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=500 %}
+{% api-method-response-example-description %}
+Server down
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/profile" %}
 {% api-method-summary %}
 
 {% endapi-method-summary %}
@@ -88,9 +151,73 @@ Server down
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=200 %}
+{% api-method-response-example httpCode=401 %}
 {% api-method-response-example-description %}
+`uid` is not valid
+{% endapi-method-response-example-description %}
 
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/profile" %}
+{% api-method-summary %}
+
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="" type="string" required=false %}
+
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/profile" %}
+{% api-method-summary %}
+
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="" type="string" required=false %}
+
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid
 {% endapi-method-response-example-description %}
 
 ```

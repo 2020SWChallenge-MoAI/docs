@@ -1,8 +1,8 @@
-# find id / reset password
+# ID / Password
 
 {% api-method method="get" host="https://ttokdok.moai" path="/auth/id" %}
 {% api-method-summary %}
-Find id
+Find ID
 {% endapi-method-summary %}
 
 {% api-method-description %}

@@ -1,4 +1,4 @@
-# sign in / sign up
+# Sign in / Sign up
 
 {% api-method method="post" host="https://ttokdok.moai" path="/auth/sign-in" %}
 {% api-method-summary %}

@@ -4,12 +4,12 @@
 
 ## auth
 
-* [sign in / sign up](auth/sign-in.md)
-* [find id / reset password](auth/find-id-and-password.md)
+* [Sign in / Sign up](auth/sign-in.md)
+* [ID / Password](auth/find-id-and-password.md)
 
 ## user
 
-* [Untitled](user/untitled.md)
+* [User](user/untitled.md)
 
 ## book
 

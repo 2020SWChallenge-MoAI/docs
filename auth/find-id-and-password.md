@@ -2,7 +2,7 @@
 
 {% api-method method="get" host="https://ttokdok.moai" path="/auth/find-id" %}
 {% api-method-summary %}
-find id
+Find id
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -60,7 +60,7 @@ Server down
 
 {% api-method method="get" host="https://ttokdok.moai" path="/auth/password-reset-token" %}
 {% api-method-summary %}
-
+Create password reset token
 {% endapi-method-summary %}
 
 {% api-method-description %}

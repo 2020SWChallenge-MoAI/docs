@@ -45,16 +45,26 @@ Access token
 ```
 {% endapi-method-response-example %}
 
-{% api-method-response-example httpCode=401 %}
+{% api-method-response-example httpCode=400 %}
 {% api-method-response-example-description %}
-`x-access-token` is not valid  
 `uid` is not valid
 {% endapi-method-response-example-description %}
 
 ```javascript
 {
-    cause: // "x-access-token" or "uid"
+    error_code: 0,
+    error_msg: "uid is not valid"
 }
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid
+{% endapi-method-response-example-description %}
+
+```javascript
+
 ```
 {% endapi-method-response-example %}
 
@@ -110,16 +120,26 @@ Access token
 ```
 {% endapi-method-response-example %}
 
-{% api-method-response-example httpCode=401 %}
+{% api-method-response-example httpCode=400 %}
 {% api-method-response-example-description %}
-`x-access-token` is not valid  
 `uid` is not valid
 {% endapi-method-response-example-description %}
 
 ```javascript
 {
-    cause: // "x-access-token" or "uid"
+    error_code: 0,
+    error_msg: "uid is not valid"
 }
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid
+{% endapi-method-response-example-description %}
+
+```javascript
+
 ```
 {% endapi-method-response-example %}
 
@@ -210,16 +230,26 @@ date : yyyy-mm-dd
 ```
 {% endapi-method-response-example %}
 
-{% api-method-response-example httpCode=401 %}
+{% api-method-response-example httpCode=400 %}
 {% api-method-response-example-description %}
-`x-access-token` is not valid  
 `uid` is not valid
 {% endapi-method-response-example-description %}
 
 ```javascript
 {
-    cause: // "x-access-token" or "uid"
+    error_code: 0,
+    error_msg: "uid is not valid"
 }
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid
+{% endapi-method-response-example-description %}
+
+```javascript
+
 ```
 {% endapi-method-response-example %}
 

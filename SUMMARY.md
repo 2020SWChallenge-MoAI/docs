@@ -18,5 +18,3 @@
 
 ## Activity
 
-* [Activity](activity/activity.md)
-

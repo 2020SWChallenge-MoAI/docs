@@ -6,7 +6,7 @@ description: Information of Books that user read
 
 {% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/category" %}
 {% api-method-summary %}
-All Categories of the Books 
+All Categories
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -46,16 +46,26 @@ Access token
 ```
 {% endapi-method-response-example %}
 
-{% api-method-response-example httpCode=401 %}
+{% api-method-response-example httpCode=400 %}
 {% api-method-response-example-description %}
-`x-access-token` is not valid  
-`uid` is not valid
+`uid` is not valid : error code 0
 {% endapi-method-response-example-description %}
 
 ```javascript
 {
-    cause: // "x-access-token" or "uid"
+    error_code: 0,
+    error_msg: "uid is not valid"
 }
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid
+{% endapi-method-response-example-description %}
+
+```javascript
+
 ```
 {% endapi-method-response-example %}
 
@@ -123,17 +133,32 @@ Access token
 ```
 {% endapi-method-response-example %}
 
-{% api-method-response-example httpCode=401 %}
+{% api-method-response-example httpCode=400 %}
 {% api-method-response-example-description %}
-`x-access-token` in not valid  
-`uid` is not valid  
-`cid` is not valid
+`uid` is not valid : error code 0  
+`cid` is not valid : error code 1
 {% endapi-method-response-example-description %}
 
 ```javascript
 {
-    cause: // "x-access-token" or "uid" or "cid"
+    error_code: 0,
+    error_msg: "uid is not valid"
 }
+
+{
+    error_code: 1,
+    error_msg: "cid is not valid"
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` in not valid
+{% endapi-method-response-example-description %}
+
+```javascript
+
 ```
 {% endapi-method-response-example %}
 
@@ -150,9 +175,9 @@ Server down
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://ttokdok.moai" path="/activity" %}
+{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/book/:bid/activities" %}
 {% api-method-summary %}
-User's All Activities of the Book
+All Activities of the Book
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -164,10 +189,6 @@ Returns all activities of the book user read
 {% api-method-path-parameters %}
 {% api-method-parameter name="uid" type="integer" required=true %}
 User uid
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="cid" type="integer" required=true %}
-Category cid
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="bid" type="integer" required=true %}
@@ -201,18 +222,32 @@ Access token
 ```
 {% endapi-method-response-example %}
 
-{% api-method-response-example httpCode=401 %}
+{% api-method-response-example httpCode=400 %}
 {% api-method-response-example-description %}
-`x-access-token` is not valid  
-`uid` is not valid  
-`cid` is not valid  
-`bid` is not valid
+`uid` is not valid : error code 0  
+`bid` is not valid : error code 2
 {% endapi-method-response-example-description %}
 
 ```javascript
 {
-    cause: // "x-access-token" or "uid" or "cid" or "bid"
+    error_code: 0,
+    error_msg: "uid is not valid"
 }
+
+{
+    error_code: 2,
+    error_msg: "bid is not valid"
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid
+{% endapi-method-response-example-description %}
+
+```javascript
+
 ```
 {% endapi-method-response-example %}
 
@@ -229,20 +264,30 @@ Server  down
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/category" %}
+{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/followers/book/:bid/activities" %}
 {% api-method-summary %}
-
+Follower's All Activities of the Book
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Returns follower's all activities of the book
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="uid" type="integer" required=true %}
+User uid
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="bid" type="integer" required=true %}
+Book bid
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
 {% api-method-headers %}
 {% api-method-parameter name="x-access-token" type="string" required=true %}
-Access 
+Access token
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
 {% endapi-method-request %}
@@ -251,6 +296,53 @@ Access
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+   activities: [
+        {
+            aid: , // integer
+            type: , // string
+            cotent: // object
+        }, ...
+    ]
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=400 %}
+{% api-method-response-example-description %}
+`uid` is not valid : error code 0  
+`bid` is not valid : error code 2
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    error_code: 0,
+    error_msg: "uid is not valid"
+}
+
+{
+    error_code: 2,
+    error_msg: "bid is not valid"
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=500 %}
+{% api-method-response-example-description %}
+Server down
 {% endapi-method-response-example-description %}
 
 ```

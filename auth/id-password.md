@@ -192,7 +192,7 @@ Reset user's password
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-headers %}
-{% api-method-parameter name="x-access-token" type="string" required=true %}
+{% api-method-parameter name="x-password-token" type="string" required=true %}
 Password token
 {% endapi-method-parameter %}
 {% endapi-method-headers %}
@@ -221,7 +221,7 @@ Password is successfully updated by `new_password`
 
 {% api-method-response-example httpCode=401 %}
 {% api-method-response-example-description %}
-`x-access-token` in invalid
+`x-password-token` is not valid
 {% endapi-method-response-example-description %}
 
 ```

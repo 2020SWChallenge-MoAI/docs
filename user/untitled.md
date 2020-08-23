@@ -4,7 +4,7 @@ description: Get informations about users
 
 # User
 
-{% api-method method="get" host="https://ttokdok.moai" path="/users/:id/profile" %}
+{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/profile" %}
 {% api-method-summary %}
 Get user profile
 {% endapi-method-summary %}
@@ -16,8 +16,8 @@ Get user's profile
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-path-parameters %}
-{% api-method-parameter name="id" type="string" required=true %}
-
+{% api-method-parameter name="uid" type="string" required=true %}
+User uid
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
 
@@ -45,6 +45,17 @@ Access token
 ```
 {% endapi-method-response-example %}
 
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid  
+`uid` is not valid
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+
 {% api-method-response-example httpCode=500 %}
 {% api-method-response-example-description %}
 Server down
@@ -58,7 +69,7 @@ Server down
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="https://ttokdok.moai" path="" %}
 {% api-method-summary %}
 
 {% endapi-method-summary %}
@@ -90,7 +101,7 @@ Server down
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="" path="" %}
+{% api-method method="get" host="https://ttokdok.moai" path="" %}
 {% api-method-summary %}
 
 {% endapi-method-summary %}

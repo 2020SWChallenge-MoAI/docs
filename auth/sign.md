@@ -30,9 +30,9 @@ Sign-in success
 
 ```javascript
 {
-    id: // integer
-    access_token: ,
-    refresh_token: ,
+    uid: // integer
+    access_token: , 
+    refresh_token: , 
 }
 ```
 {% endapi-method-response-example %}

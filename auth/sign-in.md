@@ -28,6 +28,9 @@ User password\(plain text\)
 Sign-in success
 {% endapi-method-response-example-description %}
 
+```
+
+```
 {% endapi-method-response-example %}
 
 {% api-method-response-example httpCode=401 %}
@@ -35,6 +38,9 @@ Sign-in success
 Sign-in failed
 {% endapi-method-response-example-description %}
 
+```
+
+```
 {% endapi-method-response-example %}
 
 {% api-method-response-example httpCode=500 %}
@@ -42,7 +48,9 @@ Sign-in failed
 Server down
 {% endapi-method-response-example-description %}
 
+```
 
+```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
@@ -73,7 +81,7 @@ User password \(plain text\)
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="nickname" type="string" required=true %}
-User nickname 
+User nickname
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="age" type="integer" required=true %}
@@ -88,6 +96,9 @@ User age
 Sign-in success
 {% endapi-method-response-example-description %}
 
+```
+
+```
 {% endapi-method-response-example %}
 
 {% api-method-response-example httpCode=401 %}
@@ -95,6 +106,9 @@ Sign-in success
 Sign-in failed
 {% endapi-method-response-example-description %}
 
+```
+
+```
 {% endapi-method-response-example %}
 
 {% api-method-response-example httpCode=500 %}
@@ -102,6 +116,9 @@ Sign-in failed
 Server down
 {% endapi-method-response-example-description %}
 
+```
+
+```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}

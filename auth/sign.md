@@ -17,7 +17,7 @@ User ID
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="password" type="string" required=true %}
-User password\(plain text\)
+User password
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -31,13 +31,14 @@ Sign-in success
 ```javascript
 {
     uid: // integer
-    access_token: , 
-    refresh_token: , 
+    access_token: , // string
 }
+
+set-cookie : refresh_token
 ```
 {% endapi-method-response-example %}
 
-{% api-method-response-example httpCode=401 %}
+{% api-method-response-example httpCode=403 %}
 {% api-method-response-example-description %}
 Sign-in failed
 {% endapi-method-response-example-description %}

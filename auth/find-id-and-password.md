@@ -13,7 +13,7 @@ Return all **masked IDs** _****_by the given email
 {% api-method-request %}
 {% api-method-query-parameters %}
 {% api-method-parameter name="email" type="string" required=true %}
-user's email
+User email
 {% endapi-method-parameter %}
 {% endapi-method-query-parameters %}
 {% endapi-method-request %}
@@ -21,13 +21,13 @@ user's email
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-Email is valid  
-When ID doesn't exist under the given email, send empty array.
+`email` is valid  
+When ID doesn't exist under the given `email`, send empty array.
 {% endapi-method-response-example-description %}
 
 ```javascript
 {
-    ids : [
+    user_ids: [
         // masked ids
         // ex. "ab***fg" if ID is "abcdefg"
     ]
@@ -37,7 +37,7 @@ When ID doesn't exist under the given email, send empty array.
 
 {% api-method-response-example httpCode=400 %}
 {% api-method-response-example-description %}
-Email is in invalid format
+`email` is in invalid format
 {% endapi-method-response-example-description %}
 
 ```
@@ -60,7 +60,7 @@ Server down
 
 {% api-method method="get" host="https://ttokdok.moai" path="/auth/password-reset-token" %}
 {% api-method-summary %}
-Create password reset token
+Send password reset token to email
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -69,15 +69,49 @@ Create password reset token
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
+{% api-method-query-parameters %}
+{% api-method-parameter name="email" type="string" required=true %}
+User email
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+
+{% api-method-parameter name="user\_id" type="string" required=true %}
+User ID
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+Password reset token is successfully sent to `email`
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=400 %}
+{% api-method-response-example-description %}
+`email` is in invalid format
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`email` and `user_id` is not matched
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=500 %}
 {% api-method-response-example-description %}
 
 {% endapi-method-response-example-description %}

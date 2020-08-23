@@ -136,10 +136,6 @@ Verify password token sent to the email
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-query-parameters %}
-{% api-method-parameter name="email" type="string" required=true %}
-User email
-{% endapi-method-parameter %}
-
 {% api-method-parameter name="user\_id" type="string" required=true %}
 User ID
 {% endapi-method-parameter %}
@@ -223,9 +219,9 @@ Password is successfully updated by `new_password`
 ```
 {% endapi-method-response-example %}
 
-{% api-method-response-example httpCode=302 %}
+{% api-method-response-example httpCode=401 %}
 {% api-method-response-example-description %}
-
+`x-access-token` in invalid
 {% endapi-method-response-example-description %}
 
 ```

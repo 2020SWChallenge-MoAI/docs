@@ -132,7 +132,95 @@ Server down
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/profile" %}
+{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/history" %}
+{% api-method-summary %}
+User history
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-path-parameters %}
+{% api-method-parameter name="uid" type="integer" required=true %}
+User uid
+{% endapi-method-parameter %}
+{% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="x-access-token" type="string" required=true %}
+Access token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+
+{% api-method-query-parameters %}
+{% api-method-parameter name="from" type="string" required=true %}
+date : yyyy-mm-dd
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="to" type="string" required=true %}
+date : yyyy-mm-dd
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```javascript
+{
+    history: [
+        {
+            date: // string : yyyy-mm-dd
+            book: [
+                {
+                    bid: , // integer
+                    category: , // string
+                    title: , // string
+                    author: , // string
+                    publisher: , // string
+                    is_read:  // boolean
+                }, ...
+            ], 
+            activity: [
+                {
+                    aid: , // integer
+                    type: , // string
+                    book: {
+                        bid: , // integer
+                        category: , // string
+                        title: , // string
+                        author: , // string
+                        publisher:  // string
+                    }
+                }, ...
+            ]
+            
+        }, ...
+    ]
+}
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`uid` is not valid
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/history" %}
 {% api-method-summary %}
 
 {% endapi-method-summary %}
@@ -143,17 +231,49 @@ Server down
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="string" required=false %}
-
+{% api-method-query-parameters %}
+{% api-method-parameter name="to" type="string" required=true %}
+date : yyyy-mm-dd
 {% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
+{% endapi-method-query-parameters %}
 {% endapi-method-request %}
 
 {% api-method-response %}
-{% api-method-response-example httpCode=401 %}
+{% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
-`uid` is not valid
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/history" %}
+{% api-method-summary %}
+
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-query-parameters %}
+{% api-method-parameter name="to" type="string" required=true %}
+date : yyyy-mm-dd
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
 {% endapi-method-response-example-description %}
 
 ```

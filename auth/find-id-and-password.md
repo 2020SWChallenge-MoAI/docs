@@ -1,4 +1,4 @@
-# ID / Password
+# ID & Password
 
 {% api-method method="get" host="https://ttokdok.moai" path="/auth/id" %}
 {% api-method-summary %}

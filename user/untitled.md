@@ -2,7 +2,7 @@
 description: Get informations about users
 ---
 
-# User
+# Info
 
 {% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/profile" %}
 {% api-method-summary %}
@@ -208,8 +208,8 @@ date : yyyy-mm-dd
 
 {% api-method-response-example httpCode=401 %}
 {% api-method-response-example-description %}
-x-access-token is not valid  
-uid is not valid
+`x-access-token` is not valid  
+`uid` is not valid
 {% endapi-method-response-example-description %}
 
 ```

@@ -9,7 +9,8 @@
 
 ## user
 
-* [User](user/untitled.md)
+* [Info](user/untitled.md)
+* [Book](user/book.md)
 
 ## book
 

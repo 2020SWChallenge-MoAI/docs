@@ -6,7 +6,7 @@ description: Information of Books that user read
 
 {% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/category" %}
 {% api-method-summary %}
-All Categories
+All Categories of the Books 
 {% endapi-method-summary %}
 
 {% api-method-description %}
@@ -78,7 +78,7 @@ All Books of the Category
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Returns all books of the category user read
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -114,8 +114,9 @@ Access token
             category: , // string
             title: , // string
             author: , // string
-            publisher:  // string
-            cover_image: // base64 encoded string
+            publisher: , // string
+            cover_image: , // base64 encoded string
+            rating: // float
         }, ...
     ]
 }
@@ -149,13 +150,13 @@ Server down
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://ttokdok.moai" path="/users/:uid/category/:cid/book/:bid/activity" %}
+{% api-method method="get" host="https://ttokdok.moai" path="/activity" %}
 {% api-method-summary %}
-All Activities of the Book
+User's All Activities of the Book
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Returns all activities of the book user read
 {% endapi-method-description %}
 
 {% api-method-spec %}

@@ -181,7 +181,7 @@ date : yyyy-mm-dd
     history: [
         {
             date: // string : yyyy-mm-dd
-            book: [
+            books: [
                 {
                     bid: , // integer
                     category: , // string
@@ -191,7 +191,7 @@ date : yyyy-mm-dd
                     is_read:  // boolean
                 }, ...
             ], 
-            activity: [
+            activities: [
                 {
                     aid: , // integer
                     type: , // string

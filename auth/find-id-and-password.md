@@ -1,6 +1,6 @@
 # find id / reset password
 
-{% api-method method="get" host="https://ttokdok.moai" path="/auth/find-id" %}
+{% api-method method="get" host="https://ttokdok.moai" path="/user/id" %}
 {% api-method-summary %}
 Find id
 {% endapi-method-summary %}
@@ -58,13 +58,13 @@ Server down
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="https://ttokdok.moai" path="/auth/password-reset-token" %}
+{% api-method method="post" host="https://ttokdok.moai" path="/auth/password-token" %}
 {% api-method-summary %}
-Send password reset token to email
+Send password token to email
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Send password token to `email` which you can use to reset the password
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -112,6 +112,64 @@ Password reset token is successfully sent to `email`
 {% endapi-method-response-example %}
 
 {% api-method-response-example httpCode=500 %}
+{% api-method-response-example-description %}
+Server down
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="get" host="https://ttokdok.moai" path="/auth/password-token/:token" %}
+{% api-method-summary %}
+Verify password token
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+{% api-method-query-parameters %}
+{% api-method-parameter name="password\_reset\_token" type="string" required=true %}
+Password reset token 
+{% endapi-method-parameter %}
+{% endapi-method-query-parameters %}
+{% endapi-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
+{% api-method-response-example-description %}
+
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
+{% endapi-method-response %}
+{% endapi-method-spec %}
+{% endapi-method %}
+
+{% api-method method="put" host="https://ttokdok.moai" path="/user/password" %}
+{% api-method-summary %}
+Reset user's password
+{% endapi-method-summary %}
+
+{% api-method-description %}
+
+{% endapi-method-description %}
+
+{% api-method-spec %}
+{% api-method-request %}
+
+{% api-method-response %}
+{% api-method-response-example httpCode=200 %}
 {% api-method-response-example-description %}
 
 {% endapi-method-response-example-description %}

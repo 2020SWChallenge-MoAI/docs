@@ -141,7 +141,7 @@ User ID
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="password\_token" type="string" required=true %}
-Password reset token 
+Password token 
 {% endapi-method-parameter %}
 {% endapi-method-query-parameters %}
 {% endapi-method-request %}

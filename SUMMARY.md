@@ -5,7 +5,7 @@
 ## auth
 
 * [sign in / sign up](auth/sign-in.md)
-* [find id & password](auth/find-id-and-password.md)
+* [find id / reset password](auth/find-id-and-password.md)
 
 ## user
 

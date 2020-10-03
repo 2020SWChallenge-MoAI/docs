@@ -1,3 +1,7 @@
+---
+description: API for books
+---
+
 # Book
 
 {% api-method method="get" host="http://localhost:7002" path="/api/book" %}
@@ -34,7 +38,7 @@ Get Book Text
 {% endapi-method-summary %}
 
 {% api-method-description %}
-
+Return title and text of the book with certain bid
 {% endapi-method-description %}
 
 {% api-method-spec %}

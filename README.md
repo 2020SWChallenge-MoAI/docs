@@ -132,7 +132,9 @@ Get Keyword
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Return keyword of the book
+Return keyword of the book  
+  
+\* `anc` should be a stringified JSON array. Recommend to use `JSON.stringify()` method.
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -188,4 +190,6 @@ Requested `bid` is not valid
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+
 

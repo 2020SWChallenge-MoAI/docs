@@ -145,11 +145,11 @@ BID
 
 {% api-method-query-parameters %}
 {% api-method-parameter name="num" type="integer" required=false %}
-number of keywords that want to receive
+number of keywords that want to receive \(Default: 5\)
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="anc" type="array" required=false %}
-ancestors of keyword
+ancestors of keyword \(Default: \[\]\)
 {% endapi-method-parameter %}
 {% endapi-method-query-parameters %}
 {% endapi-method-request %}

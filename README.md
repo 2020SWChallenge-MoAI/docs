@@ -72,10 +72,7 @@ Requested `bid` is not valid
 {% endapi-method-response-example-description %}
 
 ```javascript
-{
-    bid: 1999,
-    err_msg: "bid not exists"
-}
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -122,10 +119,7 @@ Requested `bid` is not valid
 {% endapi-method-response-example-description %}
 
 ```javascript
-{
-    bid: 1999,
-    err_msg: "bid not exist"   
-}
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}
@@ -188,12 +182,7 @@ Requested `bid` is not valid
 {% endapi-method-response-example-description %}
 
 ```javascript
-{
-    bid: 1999,
-    keyword_num: 3,
-    keyword_ancestors: ["토끼", "경주"],
-    err_msg: "bid not exists"
-}
+
 ```
 {% endapi-method-response-example %}
 {% endapi-method-response %}

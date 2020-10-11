@@ -10,11 +10,19 @@ Get BID List
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Return all BID list.
+Return all BID list.  
+  
+\* You can get access token at `/api/auth/signin`
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
+{% api-method-headers %}
+{% api-method-parameter name="x-access-token" type="string" required=true %}
+access token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
+{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -28,6 +36,16 @@ Request successfully processed
 }
 ```
 {% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid or expired.
+{% endapi-method-response-example-description %}
+
+```
+
+```
+{% endapi-method-response-example %}
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
@@ -38,7 +56,9 @@ Get Book Meta
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Return meta data of the book with certain bid
+Return meta data of the book with certain bid  
+  
+\* You can get access token at `/api/auth/signin`
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -48,6 +68,12 @@ Return meta data of the book with certain bid
 BID
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="x-access-token" type="string" required=true %}
+access token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -61,6 +87,16 @@ Request successfully processed
     bid: 23,
     title: "콩쥐 팥쥐"
 }
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid or expired.
+{% endapi-method-response-example-description %}
+
+```
+
 ```
 {% endapi-method-response-example %}
 
@@ -85,7 +121,10 @@ Get Book Text
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Return text of the book with certain bid
+Return text of the book with certain bid  
+  
+\* You can get access token at `/api/auth/signin`  
+\* Queried `bid`s are recorded and can be retrieved at `/api/user` 
 {% endapi-method-description %}
 
 {% api-method-spec %}
@@ -95,6 +134,12 @@ Return text of the book with certain bid
 BID
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="x-access-token" type="string" required=true %}
+access token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
 {% endapi-method-request %}
 
 {% api-method-response %}
@@ -108,6 +153,16 @@ Request successfully processed
     bid: 52,
     text: "Becomming a presentation master is not easy..."    
 }
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid or expired.
+{% endapi-method-response-example-description %}
+
+```
+
 ```
 {% endapi-method-response-example %}
 
@@ -134,6 +189,7 @@ Get Keyword
 {% api-method-description %}
 Return keyword of the book  
   
+\* You can get access token at `/api/auth/signin`  
 \* `anc` should be a stringified JSON array. Recommend to use `JSON.stringify()` method.
 {% endapi-method-description %}
 
@@ -144,6 +200,12 @@ Return keyword of the book
 BID
 {% endapi-method-parameter %}
 {% endapi-method-path-parameters %}
+
+{% api-method-headers %}
+{% api-method-parameter name="x-access-token" type="string" required=true %}
+access token
+{% endapi-method-parameter %}
+{% endapi-method-headers %}
 
 {% api-method-query-parameters %}
 {% api-method-parameter name="num" type="integer" required=false %}
@@ -173,6 +235,16 @@ Request successfully processed
         { weight: 0.002, word: "점심" },
     ]
 }
+```
+{% endapi-method-response-example %}
+
+{% api-method-response-example httpCode=401 %}
+{% api-method-response-example-description %}
+`x-access-token` is not valid or expired
+{% endapi-method-response-example-description %}
+
+```
+
 ```
 {% endapi-method-response-example %}
 

@@ -1,6 +1,6 @@
 define({
     pl: {
-        'Allowed values:'             : 'Dozwolone wartości:',
+        'Allowed values:'             : 'Dozwlone wartości:',
         'Compare all with predecessor': 'Porównaj z poprzednimi wersjami',
         'compare changes to:'         : 'porównaj zmiany do:',
         'compared to'                 : 'porównaj do:',
@@ -13,7 +13,7 @@ define({
         'No response values.'         : 'Brak odpowiedzi.',
         'optional'                    : 'opcjonalny',
         'Parameter'                   : 'Parametr',
-        'Permissions:'                 : 'Uprawnienia:',
+        'Permission:'                 : 'Uprawnienia:',
         'Response'                    : 'Odpowiedź',
         'Send'                        : 'Wyślij',
         'Send a Sample Request'       : 'Wyślij przykładowe żądanie',

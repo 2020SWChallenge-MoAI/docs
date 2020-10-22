@@ -6,11 +6,11 @@ description: API for books
 
 {% api-method method="get" host="http://localhost:7002" path="/api/book" %}
 {% api-method-summary %}
-Get BID List
+Get All Book Meta Data
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Return all BID list.  
+Return all book's meta data
   
 \* You can get access token at `/api/auth/signin`
 {% endapi-method-description %}
@@ -32,7 +32,16 @@ Request successfully processed
 
 ```javascript
 {
-    bids: [ 0, 1, 2, ... ]
+    books: [
+        {
+            bid: 0,
+            title: "물은 답을 알고 있다",
+            author: "에모토 마사루",
+            publisher: "더난출판",
+            category: "종교",
+            page_num: 32
+        }, ...
+    ]
 }
 ```
 {% endapi-method-response-example %}
@@ -50,13 +59,13 @@ Request successfully processed
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="http://localhost:7002" path="/api/book/<bid>" %}
+{% api-method method="get" host="http://localhost:7002" path="/api/book/<bid>/cover" %}
 {% api-method-summary %}
-Get Book Meta
+Get Book Cover Page
 {% endapi-method-summary %}
 
 {% api-method-description %}
-Return meta data of the book with certain bid  
+Return the cover page of the book with certain `bid`
   
 \* You can get access token at `/api/auth/signin`
 {% endapi-method-description %}
@@ -83,10 +92,7 @@ Request successfully processed
 {% endapi-method-response-example-description %}
 
 ```javascript
-{
-    bid: 23,
-    title: "콩쥐 팥쥐"
-}
+// image
 ```
 {% endapi-method-response-example %}
 

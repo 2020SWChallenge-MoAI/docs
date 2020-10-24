@@ -67,7 +67,7 @@ define({ "api": [
             "group": "Error 4xx",
             "optional": false,
             "field": "400:Bad_Request",
-            "description": "<p>Either one of id or pw is not included in the request. id is not registered. id and pw are not matching.</p>"
+            "description": "<ul> <li>Either one of id or pw is not included in the request. - id is not registered. - id and pw are not matching.</li> </ul>"
           },
           {
             "group": "Error 4xx",

@@ -42,9 +42,9 @@
     },
     "success": {
       "fields": {
-        "200 Success": [
+        "Success 200": [
           {
-            "group": "200 Success",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "access-token",
@@ -54,7 +54,7 @@
       },
       "examples": [
         {
-          "title": "{",
+          "title": "Response Example",
           "content": "{\n    \"access token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsImV4cCI6MTYwMjQyNzg4M30.iGGQvVLDIwyYwm2iOG9lBOoGxhfpV75Z7sY-uMKAXgg\"\n}",
           "type": "json"
         }
@@ -62,18 +62,18 @@
     },
     "error": {
       "fields": {
-        "4xx": [
+        "Error 4xx": [
           {
-            "group": "4xx",
+            "group": "Error 4xx",
             "optional": false,
             "field": "400:Bad_Request",
             "description": "<p>Either one of id or pw is not included in the request. id is not registered. id and pw are not matching.</p>"
           },
           {
-            "group": "4xx",
+            "group": "Error 4xx",
             "optional": false,
-            "field": "401",
-            "description": "<p>|Not_Authorized x-access-token is not valid or expired.</p>"
+            "field": "401:Not_Authorized",
+            "description": "<p>x-access-token is not valid or expired.</p>"
           }
         ]
       }

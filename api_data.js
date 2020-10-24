@@ -6,7 +6,7 @@ define({ "api": [
     "version": "0.1.0",
     "name": "Sign_In",
     "group": "Auth",
-    "description": "<p>Returns an access token</p> <ul> <li>Currently, the api is using http and it does have vulnerability of sending plain password, but the api will soon be updated to https.</li> <li>Access tokens will be expired 10 minutes after they are issued</li> </ul>",
+    "description": "<p>Returns an access token</p> <p>- Currently, the api is using http and it does have vulnerability of sending plain password, but the api will soon be updated to https.</p> <p>- Access tokens will be expired 10 minutes after they are issued</p>",
     "header": {
       "fields": {
         "Header": [
@@ -55,7 +55,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Response Example",
-          "content": "{\n    \"access token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsImV4cCI6MTYwMjQyNzg4M30.iGGQvVLDIwyYwm2iOG9lBOoGxhfpV75Z7sY-uMKAXgg\"\n}",
+          "content": "{\n    access token: \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsImV4cCI6MTYwMjQyNzg4M30.iGGQvVLDIwyYwm2iOG9lBOoGxhfpV75Z7sY-uMKAXgg\"\n}",
           "type": "json"
         }
       ]
@@ -67,13 +67,13 @@ define({ "api": [
             "group": "Error 4xx",
             "optional": false,
             "field": "400:Bad_Request",
-            "description": "<ul> <li>Either one of id or pw is not included in the request. - id is not registered. - id and pw are not matching.</li> </ul>"
+            "description": "<ul><li>Either one of <code>id</code> or <code>pw</code> is not included in the request.</li><li><code>id</code> is not registered.</li><li><code>id</code> and <code>pw</code> are not matching.</li></ul>"
           },
           {
             "group": "Error 4xx",
             "optional": false,
             "field": "401:Not_Authorized",
-            "description": "<p>x-access-token is not valid or expired.</p>"
+            "description": "<p><code>x-access-token</code> is not valid or expired.</p>"
           }
         ]
       }

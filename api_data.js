@@ -42,9 +42,9 @@ define({ "api": [
     },
     "success": {
       "fields": {
-        "200": [
+        "200 Success": [
           {
-            "group": "200",
+            "group": "200 Success",
             "type": "String",
             "optional": false,
             "field": "access-token",
@@ -54,28 +54,26 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"access token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsImV4cCI6MTYwMjQyNzg4M30.iGGQvVLDIwyYwm2iOG9lBOoGxhfpV75Z7sY-uMKAXgg\"\n}",
+          "title": "{",
+          "content": "{\n    \"access token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsImV4cCI6MTYwMjQyNzg4M30.iGGQvVLDIwyYwm2iOG9lBOoGxhfpV75Z7sY-uMKAXgg\"\n}",
           "type": "json"
         }
       ]
     },
     "error": {
       "fields": {
-        "400": [
+        "4xx": [
           {
-            "group": "400",
+            "group": "4xx",
             "optional": false,
-            "field": "Bad_Request",
+            "field": "400:Bad_Request",
             "description": "<p>Either one of id or pw is not included in the request. id is not registered. id and pw are not matching.</p>"
-          }
-        ],
-        "401": [
+          },
           {
-            "group": "401",
+            "group": "4xx",
             "optional": false,
-            "field": "Not_Authorized",
-            "description": "<p>x-access-token is not valid or expired.</p>"
+            "field": "401",
+            "description": "<p>|Not_Authorized x-access-token is not valid or expired.</p>"
           }
         ]
       }

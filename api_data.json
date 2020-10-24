@@ -5,6 +5,7 @@
     "title": "Sign In",
     "version": "0.1.0",
     "name": "Sign_In",
+    "group": "Auth",
     "description": "<p>Returns an access token</p> <ul> <li>Currently, the api is using http and it does have vulnerability of sending plain password, but the api will soon be updated to https.</li> <li>Access tokens will be expired 10 minutes after they are issued</li> </ul>",
     "parameter": {
       "fields": {
@@ -59,7 +60,6 @@
       }
     },
     "filename": "./api/auth.py",
-    "group": "/home/user1/server/api-server/api/auth.py",
-    "groupTitle": "/home/user1/server/api-server/api/auth.py"
+    "groupTitle": "Auth"
   }
 ]

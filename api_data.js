@@ -22,16 +22,16 @@ define({ "api": [
     },
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Body Parameter": [
           {
-            "group": "Parameter",
+            "group": "Body Parameter",
             "type": "String",
             "optional": false,
             "field": "id",
             "description": "<p>ID</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Body Parameter",
             "type": "String",
             "optional": false,
             "field": "pw",
@@ -54,7 +54,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Response Example",
+          "title": "Example",
           "content": "{\n    access token: \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsImV4cCI6MTYwMjQyNzg4M30.iGGQvVLDIwyYwm2iOG9lBOoGxhfpV75Z7sY-uMKAXgg\"\n}",
           "type": "json"
         }
@@ -67,7 +67,7 @@ define({ "api": [
             "group": "Error 4xx",
             "optional": false,
             "field": "400:Bad_Request",
-            "description": "<ul><li>Either one of <code>id</code> or <code>pw</code> is not included in the request.</li><li><code>id</code> is not registered.</li><li><code>id</code> and <code>pw</code> are not matching.</li></ul>"
+            "description": "<p>Either one of <code>id</code> or <code>pw</code> is not included in the request.</p><p><code>id</code> is not registered.</p><p><code>id</code> and <code>pw</code> are not matching.</p>"
           },
           {
             "group": "Error 4xx",

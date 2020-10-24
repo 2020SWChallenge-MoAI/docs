@@ -42,9 +42,9 @@
     },
     "success": {
       "fields": {
-        "Success 200": [
+        "200": [
           {
-            "group": "Success 200",
+            "group": "200",
             "type": "String",
             "optional": false,
             "field": "access-token",
@@ -62,17 +62,19 @@
     },
     "error": {
       "fields": {
-        "Error 4xx": [
+        "400": [
           {
-            "group": "Error 4xx",
+            "group": "400",
             "optional": false,
-            "field": "400:Bad_Request",
+            "field": "Bad_Request",
             "description": "<p>Either one of id or pw is not included in the request. id is not registered. id and pw are not matching.</p>"
-          },
+          }
+        ],
+        "401": [
           {
-            "group": "Error 4xx",
+            "group": "401",
             "optional": false,
-            "field": "401:Not_Authorized",
+            "field": "Not_Authorized",
             "description": "<p>x-access-token is not valid or expired.</p>"
           }
         ]

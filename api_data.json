@@ -7,6 +7,19 @@
     "name": "Sign_In",
     "group": "Auth",
     "description": "<p>Returns an access token</p> <ul> <li>Currently, the api is using http and it does have vulnerability of sending plain password, but the api will soon be updated to https.</li> <li>Access tokens will be expired 10 minutes after they are issued</li> </ul>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "x-access-token",
+            "description": "<p>Access token</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -53,8 +66,14 @@
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "Bad",
-            "description": "<p>Request Either one of id or pw is not included in the request. id is not registered. id and pw are not matching.</p>"
+            "field": "400:Bad_Request",
+            "description": "<p>Either one of id or pw is not included in the request. id is not registered. id and pw are not matching.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401:Not_Authorized",
+            "description": "<p>x-access-token is not valid or expired.</p>"
           }
         ]
       }

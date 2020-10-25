@@ -224,8 +224,6 @@ $(".left-sidebar-content-toc-container .content-toc-container .apis .request-res
 $(document).ready(function() {
     $(".left-sidebar-content-toc-container .content-toc-container .apis .request-response-container .request-response .response .response-example").each(function(idx, elem) {
         var filename = $(this).attr("id").split("response-example-")[1];
-
-        console.log(filename);
         
         $.ajax({
             type: "GET",
@@ -233,7 +231,6 @@ $(document).ready(function() {
             context: this,
             dataType: "html",
             success: function(data) {
-                console.log(data);
                 $(this).text(data);
                 hljs.highlightBlock($(this)[0]);
             }

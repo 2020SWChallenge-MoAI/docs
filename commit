@@ -1,0 +1,11 @@
+#!/bin/bash
+
+git config user.name "Heekang Park"
+git config user.email "park.heekang33@gmail.com"
+
+git add *
+
+time=`date '+%F %H:%M'`
+git commit -m "api docs update, $time"
+
+git push origin master

@@ -1,0 +1,12 @@
+{
+    "books": [
+        {
+            "bid": 0,
+            "title": "물은 답을 알고 있다",
+            "author": "에모토 마사루",
+            "publisher": "더난출판",
+            "category": "종교",
+            "page_num": 32
+        }, ...
+    ]
+}

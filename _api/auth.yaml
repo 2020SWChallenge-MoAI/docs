@@ -1,0 +1,83 @@
+name: Auth
+description: APIs for authentication
+base_url: /api/auth
+apis:
+  - name: Sign In
+    url: /signin
+    method: post
+    description: |
+      Return an access token.
+      * Currently, the api is using <code>http</code> and it does have vulnerability of sending plain password, but it will soon be updated to <code>https</code>.
+      * Access tokens will be expired 10 minutes after they are issued.
+    params:
+      body:
+        - name: id
+          is_required: true
+          type: string
+          description: ID
+        - name: pw
+          is_required: true
+          type: string
+          description: (plain) password
+    response:
+      success:
+        - status_code: 200
+          example: auth-signin-200
+      fail:
+        - status_code: 400
+          description: |
+            - Either one of <code>id</code> or <code>pw</code> is not included in the request.
+            - <code>id</code> is not registered.
+            - <code>id</code> and <code>pw</code> are not matching.
+  - name: ID Duplication Check
+    url: /id-duplicate-check
+    method: get
+    description: Checks if new <code>id</code> is duplicated or not
+    params:
+      query:
+        - name: id
+          is_required: true,
+          type: string
+          description: ID
+    response: 
+      success:
+        - status_code: 200
+          description: <code>id</code> is not duplicated(good to use)
+      fail: 
+        - status_code: 400
+          description: <code>id</code> is duplicated(not good to use)
+  - name: Sign Up
+    url: /signup
+    method: post
+    description: Create a new account.
+    params:
+      body: 
+        - name: id
+          is_required: true
+          type: string
+          description: ID
+        - name: pw
+          is_required: true
+          type: string
+          description: (plain) Password
+        - name: nickname
+          is_required: true
+          type: string
+          description: Nickname
+        - name: email
+          is_required: true
+          type: string
+          description: Email
+        - name: age
+          is_required: true
+          type: int
+          description: Age
+    response: 
+      success:
+        - status_code: 200
+          description: New account has been successfully created.
+      fail: 
+        - status_code: 400
+          description: |
+            - Either one of <code>id</code>, <code>pw</code>, <code>nickname</code>, <code>email</code> or <code>age</code> is not included in the request or not a proper type.
+            - <code>id</code> already registered(duplicated id)

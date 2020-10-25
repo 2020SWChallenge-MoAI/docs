@@ -1,0 +1,32 @@
+title: Ttokdok API Book
+author: Heekang Park
+email: park.heekang33@gmail.com
+description: API Book for Ttokdok by Moai
+version: 0.1.0
+baseurl: ""
+url: ""
+exclude: ["run", "commit", "README.md", "LICENSE", ".gitignore"]
+assets: /assets
+data_dir: _api
+includes_dir: _includes
+layouts_dir: _layouts
+collections_dir: documents
+api_baseurl: "http://localhost:7002"
+
+plugins:
+  - jekyll-redirect-from
+
+whitelist:
+  - jekyll-redirect-from
+
+collections:
+  api_book_page:
+    output: true
+    permalink: /:name
+
+defaults:
+  - scope:
+      path: ""
+      type: "api_book_page"
+    values:
+      layout: "api"

@@ -3,7 +3,7 @@ author: Heekang Park
 email: park.heekang33@gmail.com
 description: API Book for Ttokdok by Moai
 version: 0.1.0
-baseurl: ""
+baseurl: "/docs"
 url: ""
 exclude: ["run", "commit", "README.md", "LICENSE", ".gitignore"]
 assets: /assets

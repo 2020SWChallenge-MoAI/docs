@@ -6,6 +6,12 @@ git config user.email "park.heekang33@gmail.com"
 git add *
 
 time=`date '+%F %H:%M'`
-git commit -m "api docs update, $time"
+commit_msg="api docs update, $time"
+
+if [ -n "$1" ]; then
+    commit_msg=$1
+fi
+
+git commit -m "$commit_msg"
 
 git push origin master

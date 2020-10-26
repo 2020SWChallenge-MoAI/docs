@@ -1,4 +1,4 @@
-<div class="left-sidebar">
+<div class="left-sidebar hidden-when-sm-width">
     {% assign sorted_api_book = api_book | sort %}
     {% for api_group in sorted_api_book %}
     {% assign api_group_name = api_group[0] | downcase %}

@@ -256,7 +256,14 @@
 
                                             .param-is-required {
                                                 font-size: 0.8em;
-                                                color: #ff4642;
+                                                
+                                                &.required {
+                                                    color: #ff4642;
+                                                }
+
+                                                &.optional {
+                                                    color: #555555;
+                                                }
                                             }
                                         }
 
@@ -295,15 +302,15 @@
                             border-radius: $border-radius;
 
                             padding: {
-                                top: 0.5em;
-                                bottom: 0.5em;
-                                left: 0.5em;
-                                right: 0.5em;
+                                top: 0.6em;
+                                bottom: 0.6em;
+                                left: 0.6em;
+                                right: 0.6em;
                             }
 
                             .response-item {
                                 margin: {
-                                    top: 1em;
+                                    top: 1.2em;
                                 }
 
                                 &:first-child {

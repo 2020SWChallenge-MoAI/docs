@@ -1,0 +1,10 @@
+{
+    "bid": 23,
+    "keyword_num": 3,
+    "keyword_ancestors": ["토끼", "경주"],
+    "keywords": [
+        { "weight": 0.085, "word": "잠" },
+        { "weight": 0.073, "word": "거북이" },
+        { "weight": 0.002, "word": "점심" },
+    ]
+}

@@ -2,12 +2,12 @@ name: Book
 description: APIs for book
 base_url: /api/book
 apis:
-  - name: Get All Book's Meta Data
-    url: /
+  - name: Get All Book Meta Data
+    url: 
     method: get
     description: |
       Return all book's meta data.
-      * You can get access token at <code>/api/auth/signin</code>
+      * You can get an access token at <code>/api/auth/signin</code>
     params:
       header:
         - name: x-access-token
@@ -21,12 +21,13 @@ apis:
       fail:
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
-  - name: Get Book Cover Page
+  - name: Get Book Cover
     url: /<bid>/cover
     method: get
     description: |
       Return the cover page of the book with certain <code>bid</code>
-      * You can get access token at <code>/api/auth/signin</code>
+      * You can get an access token at <code>/api/auth/signin</code>
+      * You can get the information of available <code>bid</code> at <code>/api/book</code>
     params:
       header:
         - name: x-access-token
@@ -41,7 +42,7 @@ apis:
     response: 
       success:
         - status_code: 200
-          description: image
+          description: image(.png)
       fail: 
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
@@ -50,12 +51,54 @@ apis:
             Requested <code>bid</code> is not valid.
             - <code>bid</code> is not an integer(ex. "asdf", "$-#14af")
             - <code>bid</code> does not exist(ex. "1999, "643215")
-  - name: Get Book Cover Page
-    url: /<bid>/cover
+  - name: Get Book Page
+    url: /<bid>/<page>
     method: get
     description: |
-      Return the cover page of the book with certain <code>bid</code>
-      * You can get access token at <code>/api/auth/signin</code>
+      Return a page of the book with certain <code>bid</code> and certain <code>page</code>
+      * Currently, this api is only available for certain bids: 8, 10, 21, 22, 31, 38, 40, 41, 55
+      * <code>page</code> starts from 1: 1 ≤ <code>page</code> ≤ <code>page_num</code>
+      * You can get an access token at <code>/api/auth/signin</code>
+      * You can get the information of available <code>bid</code> at <code>/api/book</code>
+      * You can get the maximum value(<code>page_num</code>) for <code>page</code> at <code>/api/book</code>
+    params:
+      header:
+        - name: x-access-token
+          is_required: true
+          type: string
+          description: Access Token
+      path:
+        - name: bid
+          is_required: true
+          type: int
+          description: BID
+        - name: page
+          is_required: true
+          type: int
+          description: Page Number
+    response: 
+      success:
+        - status_code: 200
+          description: image(.png)
+      fail: 
+        - status_code: 401
+          description: <cod>x-access-token</code> is not valid or expired.
+        - status_code: 404
+          description: |
+            Requested <code>bid</code> is not valid.
+            - <code>bid</code> is not an integer(ex. "asdf", "$-#14af")
+            - <code>bid</code> does not exist(ex. "1999, "643215")
+            Requested <code>page</code> is not valid.
+            - <code>page</code> is not an integer(ex. "asdf", "$-#14af")
+            - <code>page</code> does not exist(ex. "1999, "643215")
+  - name: Get Book Text
+    url: /<bid>/text
+    method: get
+    description: |
+      Return the full text of the book with certain <code>bid</code>
+      * Currently, this api is only available for certain bids: 8, 10, 21, 22, 31, 38, 40, 41, 55
+      * You can get an access token at <code>/api/auth/signin</code>
+      * You can get the information of available <code>bid</code> at <code>/api/book</code>
     params:
       header:
         - name: x-access-token
@@ -70,10 +113,10 @@ apis:
     response: 
       success:
         - status_code: 200
-          description: image
+          example: book-getbooktext-200
       fail: 
         - status_code: 401
-          description: <code>x-access-token</code> is not valid or expired.
+          description: <cod>x-access-token</code> is not valid or expired.
         - status_code: 404
           description: |
             Requested <code>bid</code> is not valid.

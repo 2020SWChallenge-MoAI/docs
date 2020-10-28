@@ -48,3 +48,29 @@ apis:
       fail:
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
+  - name: Get User Work
+    url: /work
+    method: get
+    description: |
+      Return recently read books' <code>bid</code> the user who currently signed in
+      * You can get an access token at <code>/api/auth/signin</code>
+      * The api will conduct the job with its best effort. If the number of the book user read is smaller than <code>num</code>, it will return only <code>bid</code>s that user read. If you have to deal with the total number of the result(ex. traverse), recoommand to re-count the result, not just use <code>num</code> you provide.
+      * <code>read_book_bids</code> automatically removes repeating books. That is, even if the user continually reopens a book, it will only appeared once.
+    params:
+      header:
+        - name: x-access-token
+          is_required: true
+          type: string
+          description: Access Token
+      query:
+        - name: num
+          is_required: false
+          type: int
+          description: Number of the <code>bid</code> that want to receive. Should be an integer bigger than 0. Invalid value will be ignored(fall to default). In default, it will return all books that the user read.
+    response:
+      success:
+        - status_code: 200
+          example: user-getuserreadbook-200
+      fail:
+        - status_code: 401
+          description: <code>x-access-token</code> is not valid or expired.

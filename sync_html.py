@@ -9,10 +9,9 @@ if not os.path.exists(html_path):
     os.mkdir(html_path)
 
 for html in os.listdir(html_path):
-    os.remove(os.path.join(html))
+    os.remove(os.path.join(html_path, html))
 
 yamls = sorted([os.path.splitext(x)[0] for x in os.listdir(yaml_path) if x.endswith(".yaml")])
-#htmls = sorted([os.path.splitext(x)[0] for x in os.listdir(html_path) if x.endswith(".html")])
 
 for i, yaml in enumerate(yamls):
     with open(os.path.join(html_path, f"{yaml}.html"), "w") as html:

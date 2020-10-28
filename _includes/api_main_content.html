@@ -44,7 +44,7 @@
                                         {% endif %}
                                     </td>
                                     <td class="param-datatype-col"><p class="param-datatype">{{ param.type }}</p></td>
-                                    <td class="param-description-col"><p class="param-description">{{ param.description }}</p></td>
+                                    <td class="param-description-col"><p class="param-description">{{ param.description | newline_to_br }}</p></td>
                                 </tr>
                             {% endfor %}
                             </tbody>
@@ -72,7 +72,7 @@
                                         {% endif %}
                                     </td>
                                     <td class="param-datatype-col"><p class="param-datatype">{{ param.type }}</p></td>
-                                    <td class="param-description-col"><p class="param-description">{{ param.description }}</p></td>
+                                    <td class="param-description-col"><p class="param-description">{{ param.description | newline_to_br }}</p></td>
                                 </tr>
                             {% endfor %}
                             </tbody>
@@ -100,7 +100,7 @@
                                         {% endif %}
                                     </td>
                                     <td class="param-datatype-col"><p class="param-datatype">{{ param.type }}</p></td>
-                                    <td class="param-description-col"><p class="param-description">{{ param.description }}</p></td>
+                                    <td class="param-description-col"><p class="param-description">{{ param.description | newline_to_br }}</p></td>
                                 </tr>
                             {% endfor %}
                             </tbody>
@@ -128,7 +128,7 @@
                                         {% endif %}
                                     </td>
                                     <td class="param-datatype-col"><p class="param-datatype">{{ param.type }}</p></td>
-                                    <td class="param-description-col"><p class="param-description">{{ param.description }}</p></td>
+                                    <td class="param-description-col"><p class="param-description">{{ param.description | newline_to_br }}</p></td>
                                 </tr>
                             {% endfor %}
                             </tbody>

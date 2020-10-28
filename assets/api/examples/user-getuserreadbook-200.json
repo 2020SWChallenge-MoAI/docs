@@ -1,0 +1,12 @@
+{
+    "read_book_bids": [
+        {
+            "bid": 1,
+            "read_at": "Sun, 11 Oct 2020 23:41:29 GMT"
+        },
+        {
+            "bid": 0,
+            "read_at": "Sun, 11 Oct 2020 23:31:41 GMT"
+        }, ...
+    ]
+}

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# sync yaml and html
+source activate api-docs
+python sync_html.py
+
 git config user.name "Heekang Park"
 git config user.email "park.heekang33@gmail.com"
 

@@ -5,7 +5,7 @@ description: API Book for Ttokdok by Moai
 version: 0.1.0
 baseurl: "/docs"
 url: ""
-exclude: ["run", "commit", "README.md", "LICENSE", ".gitignore"]
+exclude: ["run", "commit", "README.md", "LICENSE", ".gitignore", "sync_html.py"]
 assets: /assets
 data_dir: _api
 includes_dir: _includes

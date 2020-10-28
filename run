@@ -1,7 +1,15 @@
 #!/bin/bash
 
+# sync yaml and html
+source activate api-docs
+python sync_html.py
+
 server_name="API DOC Server"
+
 port=5000
+if [ -n "$1" ]; then # Use the port if user provide one
+    port=$1
+fi
 
 function kill_port() {
     who=$1

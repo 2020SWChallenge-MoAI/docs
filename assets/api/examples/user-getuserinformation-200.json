@@ -1,0 +1,19 @@
+{
+    "nickname": "user1",
+    "email": "user1@test.ttokdok.moai",
+    "age": 10,
+    "profile_img_url": "",
+    "profile_text": "",
+    "created_at": "Mon, 05 Oct 2020 00:16:14 GMT",
+    "updated_at": "Mon, 05 Oct 2020 00:16:14 GMT",
+    "read_book_bids": [
+        {
+            "bid": 1,
+            "read_at": "Sun, 11 Oct 2020 23:41:29 GMT"
+        },
+        {
+            "bid": 0,
+            "read_at": "Sun, 11 Oct 2020 23:31:41 GMT"
+        }, ...
+    ]
+}

@@ -56,7 +56,6 @@ apis:
     method: get
     description: |
       Return a page of the book with certain <code>bid</code> and certain <code>page</code>
-      * Currently, this api is only available for certain bids: 8, 10, 21, 22, 31, 38, 40, 41, 55
       * <code>page</code> starts from 1: 1 ≤ <code>page</code> ≤ <code>page_num</code>
       * You can get an access token at <code>/api/auth/signin</code>
       * You can get the information of available <code>bid</code> at <code>/api/book</code>

@@ -19,7 +19,7 @@ for i, yaml in enumerate(yamls):
         html.write("---\n")
         
         if i == 0:
-            redirect_from = "redirect_from:\n    - docs/\n"
+            redirect_from = "redirect_from:\n    - /\n    - docs/\n"
             html.write(redirect_from)
 
         html.write("---\n")

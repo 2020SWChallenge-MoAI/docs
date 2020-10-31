@@ -6,9 +6,11 @@ apis:
     url: 
     method: get
     description: |
-      Return the information of the user who currently signed in
-      * You can get an access token at <code>/api/auth/signin</code>
+      Return all information of the user who currently signed in
+      * To issue a new access token, refer to <code>Auth.Sign In</code>
       * <code>read_book_bids</code> automatically removes repeating books. That is, even if the user continually reopens a book, it will only appeared once.
+      * <code>read_book_bids</code> is sorted in order of date. Recent read book appears first.
+      * <code>wids</code> is sorted in order of updated_date. Recently updated work appears first.
     params:
       header:
         - name: x-access-token
@@ -22,13 +24,12 @@ apis:
       fail:
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
-  - name: Get User Read Book
+  - name: Get All User Read Book
     url: /book
     method: get
     description: |
-      Return recently read books' <code>bid</code> the user who currently signed in
-      * You can get an access token at <code>/api/auth/signin</code>
-      * The api will conduct the job with its best effort. If the number of the book user read is smaller than <code>num</code>, it will return only <code>bid</code>s that user read. If you have to deal with the total number of the result(ex. traverse), recoommand to re-count the result, not just use <code>num</code> you provide.
+      Return all books' <code>bid</code> the user who currently signed in read in time order.
+      * To issue a new access token, refer to <code>Auth.Sign In</code>
       * <code>read_book_bids</code> automatically removes repeating books. That is, even if the user continually reopens a book, it will only appeared once.
     params:
       header:
@@ -40,7 +41,9 @@ apis:
         - name: num
           is_required: false
           type: int
-          description: Number of the <code>bid</code> that want to receive. Should be an integer bigger than 0. Invalid value will be ignored(fall to default). In default, it will return all books that the user read.
+          description: |
+            Number of the <code>bid</code> that want to receive. Should be an integer bigger than 0. Invalid value will be ignored(fall to default). In default, it will return all books that the user read.
+            The api will conduct the job with its best effort. If the number of the book the user read is smaller than <code>num</code>, it will return only <code>bid</code>s that the user read. If you have to deal with the total number of the result(ex. traverse), recoommand to re-count the result, not just use <code>num</code> you provide.
     response:
       success:
         - status_code: 200
@@ -48,29 +51,136 @@ apis:
       fail:
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
-  - name: Get User Work
+  - name: Get All User Work
     url: /work
     method: get
     description: |
-      Return recently read books' <code>bid</code> the user who currently signed in
-      * You can get an access token at <code>/api/auth/signin</code>
-      * The api will conduct the job with its best effort. If the number of the book user read is smaller than <code>num</code>, it will return only <code>bid</code>s that user read. If you have to deal with the total number of the result(ex. traverse), recoommand to re-count the result, not just use <code>num</code> you provide.
-      * <code>read_book_bids</code> automatically removes repeating books. That is, even if the user continually reopens a book, it will only appeared once.
+      Return all work <code>wid</code>s conducted by the user who currently signed in
+      * To issue a new access token, refer to <code>Auth.Sign In</code>
+      * To save a new work, refer to <code>User.Save User Work (Create New)</code>
+      * <code>wid</code>s are sorted in order of updated_at. Recently updated work appears first.
     params:
       header:
         - name: x-access-token
           is_required: true
           type: string
           description: Access Token
-      query:
-        - name: num
-          is_required: false
-          type: int
-          description: Number of the <code>bid</code> that want to receive. Should be an integer bigger than 0. Invalid value will be ignored(fall to default). In default, it will return all books that the user read.
     response:
       success:
         - status_code: 200
-          example: user-getuserreadbook-200
+          example: user-getalluserwork-200
       fail:
+        - status_code: 401
+          description: <code>x-access-token</code> is not valid or expired.
+  - name: Get User Work
+    url: /work/<wid>
+    method: get
+    description: |
+      Load the work of certain <code>wid</code> conducted by the user who currently signed in
+      * To issue a new access token, refer to <code>Auth.Sign In</code>
+      * To save a new work, refer to <code>User.Save User Work (Create New)</code>
+    params:
+      header:
+        - name: x-access-token
+          is_required: true
+          type: string
+          description: Access Token
+      path:
+        - name: wid
+          is_required: true
+          type: int
+          description: WID
+    response:
+      success:
+        - status_code: 200
+          example: user-getuserwork-200
+      fail:
+        - status_code: 400
+          description: |
+            Invalid parameters
+            - <code>wid</code> is not provided, not in the correct type, not exists, or not created by the user who signed in
+        - status_code: 401
+          description: <code>x-access-token</code> is not valid or expired.
+  - name: Save User Work (Create New)
+    url: /work/save
+    method: post
+    description: |
+      Save the work of the user who currently signed in
+      * To issue a new access token, refer to <code>Auth.Sign In</code>
+      * To save the updated work, refer to <code>User.Save User Work (Update)</code>
+    params:
+      header:
+        - name: x-access-token
+          is_required: true
+          type: string
+          description: Access Token
+      body:
+        - name: bid
+          is_required: true
+          type: int
+          description: BID
+        - name: type
+          is_required: true
+          type: int
+          description: "Type of the work. 0: 생각펼치기, 1: 독서퀴즈, 2: 그림 그리기, 3: 그림 설명하기"
+        - name: thumbnail
+          is_required: true
+          type: string
+          description: Base64 string of the work's thumbnail image(.png)
+        - name: content
+          is_required: true
+          type: array
+          description: Stringified JSON data that represents the user's work
+    response:
+      success:
+        - status_code: 200
+          description: The work has been successfully saved
+      fail:
+        - status_code: 400
+          description: |
+            Invalid parameters
+            - <code>bid</code> is not provided, not in the correct type, or not exists
+            - <code>type</code> is not provided, not in the correct type, or not in available values (0, 1, 2, 3)
+            - <code>thumbnail</code> is not provided, or not a valid base64 string of a image
+            - <code>content</code> is not provided, or empty(length is 0)
+        - status_code: 401
+          description: <code>x-access-token</code> is not valid or expired.
+  - name: Save User Work (Update)
+    url: /work/save
+    method: post
+    description: |
+      Save the work of the user who currently signed in
+      * To issue a new access token, refer to <code>Auth.Sign In</code>
+      * To save a new work, refer to <code>User.Save User Work (Create New)</code>
+    params:
+      header:
+        - name: x-access-token
+          is_required: true
+          type: string
+          description: Access Token
+      body:
+        - name: wid
+          is_required: true
+          type: int
+          description: WID
+        - name: thumbnail
+          is_required: true
+          type: string
+          description: Base64 string of the work's thumbnail image(.png)
+        - name: content
+          is_required: true
+          type: array
+          description: Stringified JSON data that represents the user's work
+    response:
+      success:
+        - status_code: 200
+          description: The work has been successfully saved
+      fail:
+        - status_code: 400
+          description: |
+            Invalid parameters
+            - <code>wid</code> is not provided, not in the correct type, or not exists
+            - <code>thumbnail</code> is not provided, or not a valid base64 string of a image
+            - <code>content</code> is not provided, or empty(length is 0)
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.

@@ -140,7 +140,7 @@ apis:
           description: |
             Invalid parameters
             - <code>bid</code> is not provided, not in the correct type, or not exists
-            - <code>type</code> is not provided, not in the correct type, or not in available values (0, 1, 2, 3)
+            - <code>type</code> is not provided, not in the correct type, or not one of available values (0, 1, 2, 3)
             - <code>thumbnail</code> is not provided, or not a valid base64 string of a image
             - <code>content</code> is not provided, or empty(length is 0)
         - status_code: 401

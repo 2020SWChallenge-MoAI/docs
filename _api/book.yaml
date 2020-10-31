@@ -27,7 +27,7 @@ apis:
     description: |
       Return the meta data of the book with certain <code>bid</code>
       * To issue a new access token, refer to <code>Auth.Sign In</code>
-      * To get the information of available <code>bid</code>s, refer to <code>Book/Get All Book Meta Data</code>
+      * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
     params:
       header:
         - name: x-access-token
@@ -57,7 +57,7 @@ apis:
     description: |
       Return the cover page of the book with certain <code>bid</code>
       * To issue a new access token, refer to <code>Auth.Sign In</code>
-      * To get the information of available <code>bid</code>s, refer to <code>Book/Get All Book Meta Data</code>
+      * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
     params:
       header:
         - name: x-access-token
@@ -88,8 +88,8 @@ apis:
       Return a page of the book with certain <code>bid</code> and certain <code>page</code>
       * <code>page</code> starts from 1 (1 ≤ <code>page</code> ≤ <code>page_num</code>)
       * To issue a new access token, refer to <code>Auth.Sign In</code>
-      * To get the information of available <code>bid</code>s, refer to <code>Book/Get All Book Meta Data</code>
-      * To get the maximum value(<code>page_num</code>) for <code>page</code>, refer to <code>Book/Get ALl Book Meta Data</code>
+      * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
+      * To get the maximum value(<code>page_num</code>) for <code>page</code>, refer to <code>Book.Get ALl Book Meta Data</code>
     params:
       header:
         - name: x-access-token
@@ -127,7 +127,7 @@ apis:
       Return the full text of the book with certain <code>bid</code>
       * Currently, this api is only available for certain bids: 8, 10, 21, 22, 31, 38, 40, 41, 55
       * To issue a new access token, refer to <code>Auth.Sign In</code>
-      * To get the information of available <code>bid</code>s, refer to <code>Book/Get All Book Meta Data</code>
+      * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
     params:
       header:
         - name: x-access-token
@@ -157,7 +157,7 @@ apis:
     description: |
       Return keywords of the book
       * To issue a new access token, refer to <code>Auth.Sign In</code>
-      * To get the information of available <code>bid</code>s, refer to <code>Book/Get All Book Meta Data</code>
+      * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
       * <code>anc</code> should be a stringified JSON array. Recommend to use <code>JSON.stringify()</code> method.
     params:
       header:
@@ -197,7 +197,7 @@ apis:
     description: |
       Return main sentences of the book
       * To issue a new access token, refer to <code>Auth.Sign In</code>
-      * To get the information of available <code>bid</code>s, refer to <code>Book/Get All Book Meta Data</code>
+      * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
     params:
       header:
         - name: x-access-token
@@ -226,3 +226,163 @@ apis:
             Requested <code>bid</code> is not valid.
             - <code>bid</code> is not an integer(ex. "asdf", "$-#14af")
             - <code>bid</code> does not exist(ex. "1999, "643215")
+  - name: Verify QnA Question
+    url: /<bid>/qna/verify/question
+    method: POST
+    description: |
+      Verify if <code>question</code> is valid under certain <code>bid</code>
+      * To issue a new access token, refer to <code>Auth.Sign In</code>
+      * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
+    params:
+      header:
+        - name: x-access-token
+          is_required: true
+          type: string
+          description: Access Token
+      path:
+        - name: bid
+          is_required: true
+          type: int
+          description: BID
+      body:
+        - name: question
+          is_required: true
+          type: string
+          description: Question
+    response:
+      success:
+        - status_code: 200
+          description: <code>question</code> is valid (Good to use)
+      fail:
+        - status_code: 400
+          description: |
+            <code>question</code> is not valid (Not good to use)
+            - <code>bid</code> is not provided, not in a correct type, or not existing.
+            - <code>question</code> is not provided, empty(length is 0), or not matching with <code>bid</code>
+        - status_code: 401
+          description: <code>x-access-token</code> is not valid or expired.
+  - name: Verify QnA Answer
+    url: /<bid>/qna/verify/answer
+    method: POST
+    description: |
+      Verify if <code>answer</code> is valid under certain <code>bid</code> and <code>question</code>
+      * To issue a new access token, refer to <code>Auth.Sign In</code>
+      * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
+      * The API assumes <code>question</code> is valid. Recommend to verify <code>question</code> before run the api. Refer to <code>Book.Verify QnA Question</code>
+    params:
+      header:
+        - name: x-access-token
+          is_required: true
+          type: string
+          description: Access Token
+      path:
+        - name: bid
+          is_required: true
+          type: int
+          description: BID
+      body:
+        - name: question
+          is_required: true
+          type: string
+          description: Question
+        - name: type
+          is_required: true
+          type: int
+          description: "Question Type. 0: Multiple Choices, 1: Short Answer"
+        - name: answer
+          is_required: true
+          type: string
+          description: |
+            Answer
+            - If <code>type</code> is 0(Multiple Choices), <code>answer</code> should be in this format: <code>answer#@@#option1#@@#option2#@@#option3#@@#option4</code> ex) <code>"4#@@#바다토끼#@@#죽은 토끼#@@#염기성 토끼#@@#모두 다"</code>
+            - If <code>type</code> is 1(Short Answer), <code>answer</code> should be in this format: <code>answer</code> ex) <code>"염기성 토끼"</code>
+    response:
+      success:
+        - status_code: 200
+          description: <code>answer</code> is valid (Good to use)
+      fail:
+        - status_code: 400
+          description: |
+            <code>answer</code> is not valid (Not good to use)
+            - <code>bid</code> is not provided, not in a correct type, or not existing.
+            - <code>question</code> is not provided, or empty(length is 0)
+            - <code>type</code> is not not provided, not in a correct type, or not one of available values (0, 1)
+            - <code>answer</code> is not provided, empty(length is 0), not in a right format for <code>type</code>, or not matching with <code>bid</code> and <code>question</code>
+        - status_code: 401
+          description: <code>x-access-token</code> is not valid or expired.
+  - name: Submit Question
+    url: /<bid>/qna/submit
+    method: POST
+    description: |
+      Submit a new <code>question</code> and <code>answer</code> pair.
+      * To issue a new access token, refer to <code>Auth.Sign In</code>
+      * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
+      * The API assumes <code>question</code> and <code>answer</code> are valid. Recommend to verify them before run the api. Refer to <code>Book.Verify QnA Question</code> and <code>Book.Verify QnA Answer</code>
+    params:
+      header:
+        - name: x-access-token
+          is_required: true
+          type: string
+          description: Access Token
+      path:
+        - name: bid
+          is_required: true
+          type: int
+          description: BID
+      body:
+        - name: question
+          is_required: true
+          type: string
+          description: Question
+        - name: type
+          is_required: true
+          type: int
+          description: "Question Type. 0: Multiple Choices, 1: Short Answer"
+        - name: answer
+          is_required: true
+          type: string
+          description: Answer
+    response:
+      success:
+        - status_code: 200
+          description: <code>question</code> and <code>answer</code> submission success.
+      fail:
+        - status_code: 400
+          description: |
+            <code>question</code> and <code>answer</code> submission failed.
+            - <code>bid</code> is not provided, not in a correct type, or not existing.
+            - <code>question</code> is not provided, empty(length is 0), or not matching with <code>bid</code>
+            - <code>type</code> is not not provided, not in a correct type, or not one of available values (0, 1)
+            - <code>answer</code> is not provided, empty(length is 0), not in a right format for <code>type</code>, or not matching with <code>bid</code> and <code>question</code>
+        - status_code: 401
+          description: <code>x-access-token</code> is not valid or expired.
+  - name: Get Random Question Answer
+    url: /<bid>/qna/rand
+    method: get
+    description: |
+      Get a random <code>question</code> and <code>answer</code> pair.
+      * To issue a new access token, refer to <code>Auth.Sign In</code>
+      * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
+    params:
+      header:
+        - name: x-access-token
+          is_required: true
+          type: string
+          description: Access Token
+      path:
+        - name: bid
+          is_required: true
+          type: int
+          description: BID
+    response:
+      success:
+        - status_code: 200
+          example: book-getrandomquestionanswer-200
+      fail:
+        - status_code: 400
+          description: |
+            Invalid Parameter
+            - <code>bid</code> is not provided, not in a correct type, or not existing.
+        - status_code: 401
+          description: <code>x-access-token</code> is not valid or expired.
+      

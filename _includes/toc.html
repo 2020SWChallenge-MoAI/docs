@@ -2,7 +2,7 @@
     <div class="toc">
         <p class="toc-title">Contents</p>
         {% for api in yaml.apis %}
-        <p class="toc-item"><span class="toc-api-method toc-api-method-{{ api.method | downcase }}">{{ api.method | upcase }}</span><span class="toc-api-name">{{ api.name }}</span></p>
+        <p class="toc-item"><span class="toc-api-method toc-api-method-{{ api.method | downcase }}">{{ api.method | upcase }}</span><a class="toc-api-name" href="#api-{{ forloop.index }}">{{ api.name }}</a></p>
         {% endfor %}
     </div>
 </div>

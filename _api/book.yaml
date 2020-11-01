@@ -47,7 +47,9 @@ apis:
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
         - status_code: 404
-          description: <code>bid</code> is not in a correct type, or not existing
+          description: |
+            Invalid Parameter
+            - <code>bid</code> is not in a correct type, or not existing
   - name: Get Book Cover
     url: /<bid>/cover
     method: get
@@ -74,7 +76,9 @@ apis:
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
         - status_code: 404
-          description: <code>bid</code> is not in a correct type, or not existing
+          description: |
+            Invalid Parameter
+            - <code>bid</code> is not in a correct type, or not existing
   - name: Get Book Page
     url: /<bid>/<page>
     method: get
@@ -108,6 +112,7 @@ apis:
           description: <code>x-access-token</code> is not valid or expired.
         - status_code: 404
           description: |
+            Invalid Parameters
             - <code>bid</code> is not in a correct type, or not existing
             - <code>page</code> is not in a correct type, or not existing
   - name: Get Book Text
@@ -137,7 +142,9 @@ apis:
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
         - status_code: 404
-          description: <code>bid</code> is not in a correct type, or not existing
+          description: |
+            Invalid Parameter
+            - <code>bid</code> is not in a correct type, or not existing
   - name: Get Book Keyword
     url: /<bid>/keyword
     method: get
@@ -175,9 +182,8 @@ apis:
           description: <code>x-access-token</code> is not valid or expired.
         - status_code: 404
           description: |
-            Requested <code>bid</code> is not valid.
-            - <code>bid</code> is not an integer(ex. "asdf", "$-#14af")
-            - <code>bid</code> does not exist(ex. "1999, "643215")
+            Invalid Parameter
+            - <code>bid</code> is not in a correct type, or not existing
   - name: Get Book Main Sentence
     url: /<bid>/main-sentence
     method: get
@@ -210,13 +216,15 @@ apis:
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
         - status_code: 404
-          description: <code>bid</code> is not in a correct type, or not existing
+          description: |
+            Invalid Parameter
+            - <code>bid</code> is not in a correct type, or not existing
   - name: Get Book Main Image
-    url: /<bid>/keyword
+    url: /<bid>/main-image
     method: get
     description: |
-      Return main sentences of the book
-      * Main sentences are pre-calculated for book with bid 8, 10, 21, 22, 31, 38, 40, 41, 55. Request with <code>bid</code> except 8, 10, 21, 22, 31, 38, 40, 41, 55 will be slow.
+      Return main images of the book
+      * Currently, this api is only available for certain bids: 8, 10, 21, 22, 31, 38, 40, 41, 55
       * To issue a new access token, refer to <code>Auth.Sign In</code>
       * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
     params:
@@ -234,19 +242,18 @@ apis:
         - name: num
           is_required: false
           type: int
-          description: "number of main sentences that want to receive (default: 10)"
+          description: "number of main images that want to receive (default: 4)"
     response: 
       success:
         - status_code: 200
-          example: book-getbookmainsentence-200
+          example: book-getbookmainimage-200
       fail: 
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
         - status_code: 404
           description: |
-            Requested <code>bid</code> is not valid.
-            - <code>bid</code> is not an integer(ex. "asdf", "$-#14af")
-            - <code>bid</code> does not exist(ex. "1999, "643215")
+            Invalid Parameter
+            - <code>bid</code> is not in a correct type, or not existing
   - name: Verify QnA Question
     url: /<bid>/qna/verify/question
     method: POST
@@ -276,12 +283,14 @@ apis:
           description: <code>question</code> is valid (Good to use)
       fail:
         - status_code: 400
-          description: |
-            <code>question</code> is not valid (Not good to use)
-            - <code>bid</code> is not provided, not in a correct type, or not existing.
-            - <code>question</code> is not provided, empty(length is 0), or not matching with <code>bid</code>
+          description: <code>question</code> is not valid (Not good to use)
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
+        - status_code: 404
+          description: |
+            Invalid Parameters
+            - <code>bid</code> is not provided, not in a correct type, or not existing.
+            - <code>question</code> is not provided, or empty(length is 0)
   - name: Verify QnA Answer
     url: /<bid>/qna/verify/answer
     method: POST

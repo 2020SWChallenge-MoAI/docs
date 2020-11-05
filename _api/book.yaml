@@ -79,6 +79,36 @@ apis:
           description: |
             Invalid Parameter
             - <code>bid</code> is not in a correct type, or not existing
+  - name: Register Book Read
+    url: /<bid>/read
+    method: post
+    description: |
+      Register the book with <code>bid</code> to the list of read books of the user who currently signed in
+      * To issue a new access token, refer to <code>Auth.Sign In</code>
+      * To get the information of available <code>bid</code>s, refer to <code>Book.Get All Book Meta Data</code>
+      * To access the list of read books of the user, refer to <code>User.Get All User Read Book</code>
+    params:
+      header:
+        - name: x-access-token
+          is_required: true
+          type: string
+          description: Access Token
+      path:
+        - name: bid
+          is_required: true
+          type: int
+          description: BID
+    response: 
+      success:
+        - status_code: 200
+          description: the book has been successfully registered
+      fail: 
+        - status_code: 401
+          description: <code>x-access-token</code> is not valid or expired.
+        - status_code: 404
+          description: |
+            Invalid Parameter
+            - <code>bid</code> is not in a correct type, or not existing
   - name: Get Book Page
     url: /<bid>/<page>
     method: get

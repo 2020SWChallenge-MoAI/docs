@@ -274,6 +274,10 @@ apis:
           is_required: true
           type: int
           description: Rank of the image. Starts from 1.
+        - name: thumbnail
+          is_required: false
+          type: boolean
+          description: If true, thumbnail will be sent. If false, original image will be sent. If not set, original image will be sent(same with false).
     response: 
       success:
         - status_code: 200

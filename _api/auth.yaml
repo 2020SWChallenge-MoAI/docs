@@ -6,9 +6,10 @@ apis:
     url: /signin
     method: post
     description: |
-      Return an access token.
+      Issue <code>access token</code> and <code>refresh token</code>
       * Currently, the api is using <code>http</code> and it does have vulnerability of sending plain password, but it will soon be updated to <code>https</code>.
-      * Access tokens will be expired 10 minutes after they are issued.
+      * <code>access token</code>s will be expired 10 minutes after they are issued.
+      * <code>refresh token</code>s will be expired 2 weeks after they are issued.
     params:
       body:
         - name: id
@@ -81,3 +82,29 @@ apis:
           description: |
             - Either one of <code>id</code>, <code>pw</code>, <code>nickname</code>, <code>email</code> or <code>age</code> is not included in the request or not a proper type.
             - <code>id</code> already registered(duplicated id)
+  - name: Refresh Token
+    url: /refresh
+    method: get
+    description: |
+      Re-issue an access token with <code>refresh token</code>
+    params:
+      header: 
+        - name: x-access-token
+          is_required: true
+          type: string
+          description: (expired) access token
+        - name: x-refresh-token
+          is_required: true
+          type: string
+          description: refresh token
+    response: 
+      success:
+        - status_code: 200
+          example: auth-refreshtoken-200
+      fail: 
+        - status_code: 401
+          description: |
+            - <code>x-access-token</code> or <code>x-refresh-token</code> is not provided.
+            - <code>x-access-token</code> or <code>x-refresh-token</code> is not valid(not issued by the server, or modified).
+            - <code>x-refresh-token</code> is banned.
+            - <code>x-access-token</code> and <code>x-refresh-token</code> are not matching.

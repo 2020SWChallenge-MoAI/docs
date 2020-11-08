@@ -123,10 +123,6 @@ apis:
           is_required: true
           type: int
           description: "Type of the work. 0: 생각펼치기, 1: 독서퀴즈, 2: 그림 그리기, 3: 그림 설명하기"
-        - name: thumbnail
-          is_required: true
-          type: string
-          description: Base64 string of the work's thumbnail image(.png)
         - name: content
           is_required: true
           type: array
@@ -141,7 +137,6 @@ apis:
             Invalid parameters
             - <code>bid</code> is not provided, not in the correct type, or not exists
             - <code>type</code> is not provided, not in the correct type, or not one of available values (0, 1, 2, 3)
-            - <code>thumbnail</code> is not provided, or not a valid base64 string of a image
             - <code>content</code> is not provided, or empty(length is 0)
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.
@@ -163,10 +158,6 @@ apis:
           is_required: true
           type: int
           description: WID
-        - name: thumbnail
-          is_required: true
-          type: string
-          description: Base64 string of the work's thumbnail image(.png)
         - name: content
           is_required: true
           type: array
@@ -180,7 +171,6 @@ apis:
           description: |
             Invalid parameters
             - <code>wid</code> is not provided, not in the correct type, or not exists
-            - <code>thumbnail</code> is not provided, or not a valid base64 string of a image
             - <code>content</code> is not provided, or empty(length is 0)
         - status_code: 401
           description: <code>x-access-token</code> is not valid or expired.

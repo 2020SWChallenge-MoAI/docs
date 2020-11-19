@@ -6,7 +6,7 @@ python sync_html.py
 git config user.name "Heekang Park"
 git config user.email "park.heekang33@gmail.com"
 
-git add *
+git add .
 
 time=`date '+%F %H:%M'`
 commit_msg="api docs update, $time"

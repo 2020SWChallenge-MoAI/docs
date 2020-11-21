@@ -1,5 +1,9 @@
 # Ttokdok API Book
 
+Jekyll로 작성된 Ttokdok API Book
+
+<https://2020swchallenge-moai.github.io/docs/>
+
 ![image](https://user-images.githubusercontent.com/16741548/99675259-5b5c6e80-2aba-11eb-8c2e-2e31b9675b16.png)
 
 ## Prerequisite

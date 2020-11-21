@@ -2,6 +2,11 @@
 
 ![image](https://user-images.githubusercontent.com/16741548/99675259-5b5c6e80-2aba-11eb-8c2e-2e31b9675b16.png)
 
+## Prerequisite
+
+- 파이썬 3이 시스템에 설치되어 있고, `python` 명령어로 접근 가능해야 한다.
+    - 일반적으로 `python` 명령어는 파이썬 2가, `python3` 명령어는 파이썬 3에 연결되어 있다. `alias` 설정 혹은 가상환경 생성이 필요하다.
+
 ## How to use
 
 1. `/_api/` 디렉토리에 API를 기술한다(yaml).
